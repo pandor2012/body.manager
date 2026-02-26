@@ -1,0 +1,103 @@
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #0f766e;
+  --primary-pressed: #115e59;
+  --border: #d1d5db;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  background: linear-gradient(160deg, #f9fafb 0%, var(--bg) 100%);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.subtitle {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+.status {
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #f8fafc;
+}
+
+.status-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+#current-command {
+  font-size: 1.1rem;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+button {
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.04s ease, background-color 0.15s ease;
+}
+
+button:active {
+  background: var(--primary-pressed);
+  transform: scale(0.99);
+}
+
+button.active {
+  outline: 3px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+@media (min-width: 560px) {
+  .buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .buttons button:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+}

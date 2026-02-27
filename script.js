@@ -2,7 +2,7 @@ const commandLabel = document.getElementById("current-command");
 const systemState = document.getElementById("system-state");
 const startButton = document.getElementById("start-button");
 const commandButtons = Array.from(document.querySelectorAll(".command-button[data-command]"));
-const audioVersion = "20260227-abyss-1";
+const audioVersion = "20260227-abyss-2";
 const startAcceptedAudioPath = `audio/start-accepted.wav?v=${audioVersion}`;
 const commandAudioPath = new Map([
   ["Влево", `audio/vlevo-classic.wav?v=${audioVersion}`],
@@ -10,6 +10,7 @@ const commandAudioPath = new Map([
   ["Не двигаться", `audio/ne-dvigatsya-classic.wav?v=${audioVersion}`],
   ["Лечь на пол", `audio/lech-na-pol-classic.wav?v=${audioVersion}`],
   ["Присесть", `audio/prisest-classic.wav?v=${audioVersion}`],
+  ["Прыжок", `audio/jump.wav?v=${audioVersion}`],
 ]);
 const voicePlayer = new Audio();
 voicePlayer.preload = "auto";

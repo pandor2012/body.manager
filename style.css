@@ -325,6 +325,10 @@ button:active:not(:disabled) {
   color: #211400;
 }
 
+.command-button.jump {
+  background: linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%);
+}
+
 .command-button:disabled {
   cursor: not-allowed;
   opacity: 0.36;
@@ -345,6 +349,10 @@ button:active:not(:disabled) {
   }
 
   .command-button.hold {
+    grid-column: 1 / -1;
+  }
+
+  .command-button.jump {
     grid-column: 1 / -1;
   }
 }

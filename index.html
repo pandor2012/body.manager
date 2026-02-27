@@ -3,28 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Панель команд</title>
+    <title>Игровая панель команд</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="app">
-      <h1>Панель команд</h1>
-      <p class="subtitle">Нажмите кнопку для отправки действия</p>
+      <header class="hud">
+        <span class="mode-badge">ARENA MODE</span>
+        <h1>Командный Пульт</h1>
+        <p class="subtitle">Сначала активируйте запуск, потом управляйте действиями.</p>
+      </header>
+
+      <section class="start-zone">
+        <button id="start-button" class="start-button">Старт</button>
+        <p class="start-note">Кнопка запуска срабатывает только один раз.</p>
+      </section>
 
       <section class="status" aria-live="polite">
-        <span class="status-label">Текущая команда:</span>
-        <strong id="current-command">Не выбрана</strong>
+        <div class="status-top">
+          <span class="status-label">Последняя команда</span>
+          <span class="status-chip" id="system-state" data-state="locked">Заблокировано</span>
+        </div>
+        <strong id="current-command">Ожидание старта</strong>
       </section>
 
       <section class="buttons" role="group" aria-label="Команды">
-        <button data-command="Влево">Влево</button>
-        <button data-command="Вправо">Вправо</button>
-        <button data-command="Не двигаться">Не двигаться</button>
-        <button data-command="Лечь на пол">Лечь на пол</button>
-        <button data-command="Присесть">Присесть</button>
+        <button class="command-button left" data-command="Влево" disabled>Влево</button>
+        <button class="command-button right" data-command="Вправо" disabled>Вправо</button>
+        <button class="command-button hold" data-command="Не двигаться" disabled>Не двигаться</button>
+        <button class="command-button floor" data-command="Лечь на пол" disabled>Лечь на пол</button>
+        <button class="command-button crouch" data-command="Присесть" disabled>Присесть</button>
       </section>
     </main>
 
-    <script src="script.js?v=20260227-mobile-1"></script>
+    <script src="script.js?v=20260227-game-1"></script>
   </body>
 </html>

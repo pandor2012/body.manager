@@ -1,16 +1,40 @@
 const commandLabel = document.getElementById("current-command");
 const buttons = Array.from(document.querySelectorAll("button[data-command]"));
-const fallbackAudio = new Audio();
-fallbackAudio.preload = "none";
-fallbackAudio.volume = 1;
+const audioVersion = "20260227-classic-1";
+const commandAudioPath = new Map([
+  ["Влево", `audio/vlevo-classic.wav?v=${audioVersion}`],
+  ["Вправо", `audio/vpravo-classic.wav?v=${audioVersion}`],
+  ["Не двигаться", `audio/ne-dvigatsya-classic.wav?v=${audioVersion}`],
+  ["Лечь на пол", `audio/lech-na-pol-classic.wav?v=${audioVersion}`],
+  ["Присесть", `audio/prisest-classic.wav?v=${audioVersion}`],
+]);
+const voicePlayer = new Audio();
+voicePlayer.preload = "auto";
+voicePlayer.volume = 1;
+voicePlayer.playsInline = true;
+
+let currentAudioPath = "";
 
 function speakCommand(command) {
-  // Используем только онлайн-RU TTS (в большинстве случаев женский голос Google Translate).
-  const url = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ru&q=${encodeURIComponent(command)}`;
-  fallbackAudio.pause();
-  fallbackAudio.currentTime = 0;
-  fallbackAudio.src = url;
-  fallbackAudio.play().catch(() => {});
+  const audioPath = commandAudioPath.get(command);
+
+  if (!audioPath) {
+    return;
+  }
+
+  voicePlayer.pause();
+
+  if (currentAudioPath !== audioPath) {
+    currentAudioPath = audioPath;
+    voicePlayer.src = audioPath;
+    voicePlayer.load();
+  } else {
+    voicePlayer.currentTime = 0;
+  }
+
+  voicePlayer.play().catch((error) => {
+    console.error("Audio playback failed:", error);
+  });
 }
 
 function setActiveCommand(command, pressedButton) {

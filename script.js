@@ -3,7 +3,7 @@ const systemState = document.getElementById("system-state");
 const startButton = document.getElementById("start-button");
 const startNote = document.getElementById("start-note");
 const commandButtons = Array.from(document.querySelectorAll(".command-button[data-command]"));
-const audioVersion = "20260227-poster-1";
+const audioVersion = "20260227-voicepack-1";
 const startAcceptedAudioPath = `audio/start-accepted.wav?v=${audioVersion}`;
 const commandAudioPath = new Map([
   ["Влево", `audio/vlevo-classic.wav?v=${audioVersion}`],

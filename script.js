@@ -2,7 +2,8 @@ const commandLabel = document.getElementById("current-command");
 const systemState = document.getElementById("system-state");
 const startButton = document.getElementById("start-button");
 const commandButtons = Array.from(document.querySelectorAll(".command-button[data-command]"));
-const audioVersion = "20260227-classic-1";
+const audioVersion = "20260227-abyss-1";
+const startAcceptedAudioPath = `audio/start-accepted.wav?v=${audioVersion}`;
 const commandAudioPath = new Map([
   ["Влево", `audio/vlevo-classic.wav?v=${audioVersion}`],
   ["Вправо", `audio/vpravo-classic.wav?v=${audioVersion}`],
@@ -29,9 +30,7 @@ function unlockControls() {
   });
 }
 
-function speakCommand(command) {
-  const audioPath = commandAudioPath.get(command);
-
+function playAudio(audioPath) {
   if (!audioPath) {
     return;
   }
@@ -49,6 +48,10 @@ function speakCommand(command) {
   voicePlayer.play().catch((error) => {
     console.error("Audio playback failed:", error);
   });
+}
+
+function speakCommand(command) {
+  playAudio(commandAudioPath.get(command));
 }
 
 function setActiveCommand(command, pressedButton) {
@@ -74,9 +77,10 @@ startButton.addEventListener("click", () => {
   startButton.disabled = true;
   startButton.classList.add("used");
   startButton.textContent = "Старт принят";
-  commandLabel.textContent = "Панель активирована";
+  commandLabel.textContent = "Старт принят";
   setSystemState("Активно", "online");
   unlockControls();
+  playAudio(startAcceptedAudioPath);
 
   if (navigator.vibrate) {
     navigator.vibrate([40, 20, 40]);

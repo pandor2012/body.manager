@@ -3,15 +3,15 @@ const systemState = document.getElementById("system-state");
 const startButton = document.getElementById("start-button");
 const startNote = document.getElementById("start-note");
 const commandButtons = Array.from(document.querySelectorAll(".command-button[data-command]"));
-const audioVersion = "20260227-voicepack-2";
-const startAcceptedAudioPath = `audio/jump.wav?v=${audioVersion}`;
+const audioVersion = "20260227-voicepack-3";
+const startAcceptedAudioPath = `audio/button-start.wav?v=${audioVersion}`;
 const commandAudioPath = new Map([
-  ["Влево", `audio/vlevo-classic.wav?v=${audioVersion}`],
-  ["Вправо", `audio/vpravo-classic.wav?v=${audioVersion}`],
-  ["Не двигаться", `audio/start-accepted.wav?v=${audioVersion}`],
-  ["Лечь на пол", `audio/ne-dvigatsya-classic.wav?v=${audioVersion}`],
-  ["Присесть", `audio/prisest-classic.wav?v=${audioVersion}`],
-  ["Прыжок", `audio/lech-na-pol-classic.wav?v=${audioVersion}`],
+  ["Влево", `audio/button-left.wav?v=${audioVersion}`],
+  ["Вправо", `audio/button-right.wav?v=${audioVersion}`],
+  ["Не двигаться", `audio/button-hold.wav?v=${audioVersion}`],
+  ["Лечь на пол", `audio/button-floor.wav?v=${audioVersion}`],
+  ["Присесть", `audio/button-crouch.wav?v=${audioVersion}`],
+  ["Прыжок", `audio/button-jump.wav?v=${audioVersion}`],
 ]);
 const voicePlayer = new Audio();
 voicePlayer.preload = "auto";

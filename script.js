@@ -2,7 +2,7 @@ const commandLabel = document.getElementById("current-command");
 const systemState = document.getElementById("system-state");
 const startButton = document.getElementById("start-button");
 const commandButtons = Array.from(document.querySelectorAll(".command-button[data-command]"));
-const audioVersion = "20260227-abyss-2";
+const audioVersion = "20260227-core-1";
 const startAcceptedAudioPath = `audio/start-accepted.wav?v=${audioVersion}`;
 const commandAudioPath = new Map([
   ["Влево", `audio/vlevo-classic.wav?v=${audioVersion}`],

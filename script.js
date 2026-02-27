@@ -1,8 +1,9 @@
 const commandLabel = document.getElementById("current-command");
 const systemState = document.getElementById("system-state");
 const startButton = document.getElementById("start-button");
+const startNote = document.getElementById("start-note");
 const commandButtons = Array.from(document.querySelectorAll(".command-button[data-command]"));
-const audioVersion = "20260227-core-1";
+const audioVersion = "20260227-poster-1";
 const startAcceptedAudioPath = `audio/start-accepted.wav?v=${audioVersion}`;
 const commandAudioPath = new Map([
   ["Влево", `audio/vlevo-classic.wav?v=${audioVersion}`],
@@ -77,7 +78,8 @@ startButton.addEventListener("click", () => {
   hasStarted = true;
   startButton.disabled = true;
   startButton.classList.add("used");
-  startButton.textContent = "Старт принят";
+  startButton.setAttribute("aria-label", "Старт принят");
+  startNote.textContent = "Старт принят";
   commandLabel.textContent = "Старт принят";
   setSystemState("Активно", "online");
   unlockControls();

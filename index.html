@@ -4,39 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Игровая панель команд</title>
-    <link rel="stylesheet" href="style.css?v=20260227-core-1" />
+    <link rel="stylesheet" href="style.css?v=20260227-poster-1" />
   </head>
   <body>
     <main class="app">
       <header class="hud">
-        <span class="mode-badge">ARENA MODE</span>
+        <span class="mode-badge">CONTROL UNIT</span>
         <h1>Командный Пульт</h1>
-        <p class="subtitle">Сначала активируйте запуск, потом управляйте действиями.</p>
+        <p class="subtitle">Сначала нажмите старт, затем выберите действие.</p>
       </header>
 
       <section class="start-zone">
-        <button id="start-button" class="start-button">Старт</button>
-        <p class="start-note">Кнопка запуска срабатывает только один раз.</p>
-      </section>
-
-      <section class="status" aria-live="polite">
-        <div class="status-top">
-          <span class="status-label">Последняя команда</span>
-          <span class="status-chip" id="system-state" data-state="locked">Заблокировано</span>
-        </div>
-        <strong id="current-command">Ожидание старта</strong>
+        <button id="start-button" class="start-button" type="button" aria-label="Старт">
+          <span class="play-icon" aria-hidden="true"></span>
+        </button>
+        <p id="start-note" class="start-note">Кнопка запуска срабатывает только один раз.</p>
       </section>
 
       <section class="buttons" role="group" aria-label="Команды">
-        <button class="command-button left" data-command="Влево" disabled>Влево</button>
-        <button class="command-button right" data-command="Вправо" disabled>Вправо</button>
-        <button class="command-button hold" data-command="Не двигаться" disabled>Не двигаться</button>
-        <button class="command-button floor" data-command="Лечь на пол" disabled>Лечь на пол</button>
-        <button class="command-button crouch" data-command="Присесть" disabled>Присесть</button>
-        <button class="command-button jump" data-command="Прыжок" disabled>Прыжок</button>
+        <button class="command-button left" type="button" data-command="Влево" disabled>
+          <span class="command-glyph" aria-hidden="true">←</span>
+          <span class="command-text">Влево</span>
+        </button>
+        <button class="command-button right" type="button" data-command="Вправо" disabled>
+          <span class="command-glyph" aria-hidden="true">→</span>
+          <span class="command-text">Вправо</span>
+        </button>
+        <button class="command-button hold" type="button" data-command="Не двигаться" disabled>
+          <span class="command-glyph" aria-hidden="true">↔</span>
+          <span class="command-text">Не двигаться</span>
+        </button>
+        <button class="command-button floor" type="button" data-command="Лечь на пол" disabled>
+          <span class="command-glyph" aria-hidden="true">▁</span>
+          <span class="command-text">Лечь на пол</span>
+        </button>
+        <button class="command-button crouch" type="button" data-command="Присесть" disabled>
+          <span class="command-glyph" aria-hidden="true">⌄</span>
+          <span class="command-text">Присесть</span>
+        </button>
+        <button class="command-button jump" type="button" data-command="Прыжок" disabled>
+          <span class="command-glyph" aria-hidden="true">↑</span>
+          <span class="command-text">Прыжок</span>
+        </button>
+      </section>
+
+      <section class="status" aria-live="polite">
+        <span class="status-chip" id="system-state" data-state="locked">Заблокировано</span>
+        <strong id="current-command">Ожидание старта</strong>
       </section>
     </main>
 
-    <script src="script.js?v=20260227-core-1"></script>
+    <script src="script.js?v=20260227-poster-1"></script>
   </body>
 </html>

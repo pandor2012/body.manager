@@ -3,12 +3,12 @@ const systemState = document.getElementById("system-state");
 const startButton = document.getElementById("start-button");
 const startNote = document.getElementById("start-note");
 const commandButtons = Array.from(document.querySelectorAll(".command-button[data-command]"));
-const audioVersion = "20260227-voicepack-3";
+const audioVersion = "20260228-voicepack-4";
 const startAcceptedAudioPath = `audio/button-start.wav?v=${audioVersion}`;
 const commandAudioPath = new Map([
   ["Влево", `audio/button-left.wav?v=${audioVersion}`],
   ["Вправо", `audio/button-right.wav?v=${audioVersion}`],
-  ["Не двигаться", `audio/button-hold.wav?v=${audioVersion}`],
+  ["Не двигаться", `audio/hold.wav?v=${audioVersion}`],
   ["Лечь на пол", `audio/button-floor.wav?v=${audioVersion}`],
   ["Присесть", `audio/button-crouch.wav?v=${audioVersion}`],
   ["Прыжок", `audio/button-jump.wav?v=${audioVersion}`],
